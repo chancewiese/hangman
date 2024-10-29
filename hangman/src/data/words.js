@@ -1,0 +1,17 @@
+export const wordList = [
+   "REACT",
+   "JAVASCRIPT",
+   "PROGRAMMING",
+   "COMPUTER",
+   "DEVELOPER",
+   "KEYBOARD",
+   "MONITOR",
+   "WEBSITE",
+   "INTERNET",
+   "DATABASE",
+   "ALGORITHM",
+   "FUNCTION",
+   "VARIABLE",
+   "FRAMEWORK",
+   "LIBRARY",
+];
