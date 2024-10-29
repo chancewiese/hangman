@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-   AppBar,
    Box,
    Button,
    Container,
@@ -10,7 +9,6 @@ import {
    DialogTitle,
    Grid,
    Paper,
-   Toolbar,
    Typography,
 } from "@mui/material";
 import GameBoard from "./components/GameBoard";
@@ -19,13 +17,14 @@ import HangmanDrawing from "./components/HangmanDrawing";
 import WordInput from "./components/WordInput";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import Header from "./components/Header";
 
 const App = () => {
    const [word, setWord] = useState("");
    const [gameStarted, setGameStarted] = useState(false);
    const [correctLetters, setCorrectLetters] = useState([]);
    const [wrongLetters, setWrongLetters] = useState([]);
-   const [gameStatus, setGameStatus] = useState("setup"); // setup, playing, won, lost
+   const [gameStatus, setGameStatus] = useState("setup");
 
    const handleWordSubmit = (newWord) => {
       setWord(newWord.toUpperCase());
@@ -65,19 +64,7 @@ const App = () => {
 
    return (
       <Box sx={{ flexGrow: 1, bgcolor: "grey.100", minHeight: "100vh" }}>
-         <AppBar position="static" sx={{ bgcolor: "primary.main", mb: 4 }}>
-            <Toolbar>
-               <Typography variant="h4" component="h1" sx={{ flexGrow: 1 }}>
-                  Hangman
-               </Typography>
-               {gameStarted && (
-                  <Button color="inherit" onClick={resetGame}>
-                     New Game
-                  </Button>
-               )}
-            </Toolbar>
-         </AppBar>
-
+         <Header gameStarted={gameStarted} onReset={resetGame} />
          <Container maxWidth="lg">
             {!gameStarted ? (
                <Paper elevation={3} sx={{ p: 4, maxWidth: "sm", mx: "auto" }}>
